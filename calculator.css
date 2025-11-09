@@ -1,0 +1,150 @@
+body{
+  display: flex;
+  justify-content: center;
+  margin-top:9rem;
+}
+
+.phone-wrap{
+  display: flex;
+  background: var(--phone-pouch-color);
+  align-items: center;
+  height: 39.9rem;
+  width: 19.6rem;
+  justify-content: center;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem 0.6rem #ccc;
+
+}
+
+
+.calculator-wrap{
+  background: black;
+  height: 38.6rem;
+  width:18.6rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.display-section{
+  background: var(--display-background-color);
+  height: 40%;
+  width: 100%;
+  border-radius:2rem 2rem 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calculator-type-container{
+  display: flex;
+  justify-content: space-between;
+  border-radius: 2rem;
+  margin-top: 2rem;
+  padding: 0 1.4rem;
+  color: var(--white);
+}
+
+
+
+
+.calculator-type{
+  position: absolute;
+  top: 3rem;
+  display: none;
+  background: var(--buttons-background);
+  
+}
+
+.calculator-type-container:hover .calculator-type{
+  display: flex;
+  flex-direction: column;
+  height: 10rem;
+  gap: 1rem;
+  border-radius: 2rem;
+  padding: 1rem;
+}
+
+.fa-chevron-up{
+  display: none;
+}
+.calculator-type-container:hover .fa-chevron-down{
+  display: none;
+}
+
+.calculator-type-container:hover .fa-chevron-up{
+  display: block;
+}
+
+.fa-clock{
+  color: white;
+}
+
+.drop-down{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.display-input1{
+  position: absolute;
+  right: 0;
+  bottom: 2.6rem;
+   width: 18rem;
+  height: 2rem; 
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  background: transparent;
+  border: none; 
+  color: var(--white);
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.display-input2{
+  position: absolute;
+  right: 0;
+  bottom:1.3rem;
+   width: 18rem;
+  height: 2.5rem;  
+  font-size: 2.5rem;
+  font-weight: bold;
+   background: transparent;
+  border: none; 
+  color: var(--white);
+  text-align: right;
+  padding-right: 1rem;
+  
+}
+
+
+
+.buttons-wrap{
+  background:var(--buttons-wrap-background);
+  height: 60%;
+  width:100%;
+  border-radius:0 0 2rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.calculation-tools{
+  border-radius:40%;
+  background: var(--buttons-background);
+  border: none;
+  color: var(--white);
+}
+
+.blue-color{
+  color: var(--blue-buttons);
+}
+.equal-sign{
+  background: var(--blue-buttons);
+}
+.fa-equals{
+  color:var(--white);
+}

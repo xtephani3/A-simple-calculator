@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="calculator.css"/>
+  <link rel="stylesheet" href="global.css"/>
+  <title>Calculator </title>
+  <script src="calculator.js" defer></script>
+</head>
+<body>
+  <div class="phone-wrap">
+  <div id="calculator-container" class="calculator-wrap">
+    <div class="display-section">
+      <div id="calculator-type-wrap" class="calculator-type-container">
+       <p class="drop-down">Calculator
+        <i class="fa-solid fa-chevron-down"></i>
+      <i class="fa-solid fa-chevron-up"></i></p>
+         <div id="calculator-kinds"class="calculator-type">
+          <p> <i class="fa-solid fa-dollar-sign"></i>
+            Currency Converter</p>
+          <p>Scientific Mode</p>
+          <p>Length Converter</p>
+          <p>Fraction</p>
+         </div>
+        
+        <div class="timer-icon">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+        </div>
+        <div id="calculator-display" class="calculator-output">
+          <input id="user-input" class="display-input1" />
+          <input id="calculated-input" class="display-input2" />
+        </div>
+      
+    </div>
+
+    
+    <div class="buttons-wrap">
+      <button class="calculation-tools blue-color" onclick="clearAllInput()">AC</button>
+      <button class="calculation-tools" onclick="toggleSign()">
+        <i class="fa-solid fa-plus-minus blue-color"></i>
+      </button>
+      <button class="calculation-tools blue-color" onclick="insertSymbol('%')">%</button>
+      <button class="calculation-tools"  onclick="insertSymbol('/')">
+        <i class="fa-solid fa-divide blue-color"></i>
+      </button>
+      <button class="calculation-tools" onclick="insertNumber('7')" >7</button>
+      <button class="calculation-tools" onclick="insertNumber('8')">8</button>
+      <button class="calculation-tools" onclick="insertNumber('9')">9</button>
+      <button class="calculation-tools" onclick="insertSymbol('*')">
+        <i class="fa-solid fa-xmark blue-color"></i>
+      </button>
+      <button class="calculation-tools" onclick="insertNumber('4')">4</button>
+      <button class="calculation-tools" onclick="insertNumber('5')">5</button>
+      <button class="calculation-tools" onclick="insertNumber('6')">6</button>
+      <button class="calculation-tools" onclick="insertSymbol('-')">
+        <i class="fa-solid fa-minus blue-color"></i>
+      </button>
+      <button class="calculation-tools" onclick="insertNumber('1')">1</button>
+      <button class="calculation-tools" onclick="insertNumber('2')">2</button>
+      <button class="calculation-tools" onclick="insertNumber('3')">3</button>
+      <button class="calculation-tools" onclick="insertSymbol('+')">
+        <i class="fa-solid fa-plus blue-color"></i>
+      </button>
+      <button class="calculation-tools" onclick="insertNumber('0')">0</button>
+      <button class="calculation-tools" onclick="insertNumber('.')">.</button>
+      <button class="calculation-tools" onclick="deleteLastInput()">
+        <i class="fa-regular fa-rectangle-xmark blue-color"></i>
+
+      </button>
+      <button class="calculation-tools equal-sign" onclick="calculate()">
+        <i class="fa-solid fa-equals blue-color"></i>
+      </button>
+      
+    </div>
+  </div>
+  </div>
+</body>
+</html>

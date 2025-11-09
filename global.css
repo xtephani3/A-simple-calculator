@@ -1,0 +1,43 @@
+
+
+
+/* Universal selector to target all elements */
+* {
+  margin: 0; /* Removes default outer spacing */
+  padding: 0; /* Removes default inner spacing */
+  box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+}
+
+/* Optional: Resetting common element styles */
+a {
+  text-decoration: none; /* Removes default underlines from links */
+  color: inherit; /* Inherits color from parent, preventing default blue link color */
+}
+
+ul, ol {
+  list-style: none; /* Removes default bullet points or numbers from lists */
+}
+
+img, picture, svg, video, canvas {
+  max-width: 100%; /* Makes images and other media responsive */
+  height: auto; /* Maintains aspect ratio when scaling */
+  display: block; /* Prevents unwanted space below inline images */
+}
+
+/* Optional: Ensure form elements inherit font styles*/ 
+input, button, textarea, select {
+  font: inherit;
+}
+
+
+:root{
+  font-size: 10px;
+  --display-background-color:#22252d;
+  --white:#ffffff;
+  --blue-buttons:#5785cf;
+  --buttons-wrap-background:#2a2d37;
+  --phone-pouch-color:#4e8af8;
+  --buttons-background:#2e313b;
+}
+
+
