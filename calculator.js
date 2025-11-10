@@ -1,6 +1,6 @@
 const userInput = document.getElementById("user-input");
 const calculatedInput = document.getElementById("calculated-input");
-const button = document.querySelectorAll("button");
+
 
 
 let inputs = []; 
@@ -48,6 +48,7 @@ const clearAllInput = () =>{
 
 const toggleSign = () => {
   if (inputs.length === 0) return;
+  inputs = transformExpression(inputs);
 
   for (let i = 0; i < inputs.length; i++) {
     if (!isNaN(inputs[i])) {
@@ -56,24 +57,79 @@ const toggleSign = () => {
   }
 
   calculatorDisplay();
-};
+}
 
 
 
 
-const percentage = () => {
-  if (inputs.length === 0) return;
+const operators =["+", "-","*","%" ,"/" ];
 
+const transformExpression =(expressionList) =>{
+  const transformed =[];
+  let setIndex = 0;
 
-  for (let i = 0; i < inputs.length; i++) {
-    if (!isNaN(inputs[i])) {
-      inputs[i] = (Number(inputs[i]) / 100).toString();
+  if( expressionList[ expressionList.length -1] == "%") {  // to fix issues with percentage
+    expressionList[ expressionList.length -1] = "/";      // to fix issues with percentage
+   expressionList[ expressionList.length] = "100";        //to fix issues with percentage
+}
+
+  expressionList.forEach((expressionItem)=>{
+    if(!transformed[setIndex]){
+      transformed[setIndex] = "";
     }
-  }
+    const isOperator = operators.includes(expressionItem);
+    if(!isOperator){
+      transformed[setIndex] = transformed[setIndex] + expressionItem;
+    }else{
+      setIndex++;
+      transformed[setIndex] = expressionItem;
+      setIndex++;
+    }
+    
+  });
   
-  calculatorDisplay();
-  return inputs;
-};
+  console.log(transformed);
+  return transformed;
+  
+}
+
+
+
+const reduceExpression =(transformed) =>{
+  let reduced =0;
+  let activeOperator = null;
+  transformed.forEach((item)=>{
+    const isOperator = operators.includes(item);
+    if(isOperator){
+      activeOperator =item;
+    }else{
+      const numberItem =Number(item);
+      console.log('the item', item);
+      switch(activeOperator){
+        case "+":
+        reduced = reduced+ numberItem;
+        break;
+        case "-":
+        reduced = reduced-numberItem;
+        break;
+        case "/":
+        reduced = reduced/ numberItem;
+        break;
+        case "*":
+        reduced = reduced * numberItem;
+        break;
+        case "%":
+        reduced = reduced/100 * numberItem;
+        break;
+        default:
+        reduced = numberItem;
+        
+      }
+      activeOperator = null;
+    }
+  });
+   return reduced;
+}
 
 
 
@@ -81,14 +137,11 @@ const calculate = () => {
   if (inputs.length === 0){
     return;
   }
-  const expressionToCalculate = inputs.join('');
-  const result = eval(expressionToCalculate);
-  
-  calculatedInput.value = result;
-  userInput.value = expressionToCalculate;
-
-  inputs = [result.toString()];
+  const transformedExpression = transformExpression(inputs);
+  const reducedExpression = reduceExpression(transformedExpression);
+  calculatedInput.value = reducedExpression;
 }
+
 
 
 
