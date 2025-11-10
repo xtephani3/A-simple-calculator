@@ -48,15 +48,32 @@ const clearAllInput = () =>{
 
 const toggleSign = () => {
   if (inputs.length === 0) return;
-  const lastInput = inputs[inputs.length - 1];
 
-  
-  if (!isNaN(lastInput)) {
-    inputs[inputs.length - 1] = (Number(lastInput) * -1).toString();
-    calculatorDisplay();
+  for (let i = 0; i < inputs.length; i++) {
+    if (!isNaN(inputs[i])) {
+      inputs[i] = (Number(inputs[i]) * -1).toString();
+    }
   }
-}
 
+  calculatorDisplay();
+};
+
+
+
+
+const percentage = () => {
+  if (inputs.length === 0) return;
+
+
+  for (let i = 0; i < inputs.length; i++) {
+    if (!isNaN(inputs[i])) {
+      inputs[i] = (Number(inputs[i]) / 100).toString();
+    }
+  }
+  
+  calculatorDisplay();
+  return inputs;
+};
 
 
 
