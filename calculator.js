@@ -46,6 +46,18 @@ const clearAllInput = () =>{
 }
 
 
+const toggleSign = () => {
+  if (inputs.length === 0) return;
+  const lastInput = inputs[inputs.length - 1];
+
+  
+  if (!isNaN(lastInput)) {
+    inputs[inputs.length - 1] = (Number(lastInput) * -1).toString();
+    calculatorDisplay();
+  }
+}
+
+
 
 
 const calculate = () => {
